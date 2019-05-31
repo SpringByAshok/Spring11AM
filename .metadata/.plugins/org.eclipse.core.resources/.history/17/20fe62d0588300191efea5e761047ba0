@@ -1,0 +1,25 @@
+package com.test;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.beans.Engine;
+import com.beans.Motor;
+
+public abstract class Test {
+
+	public static void main(String[] args) {
+		//ApplicationContext ctx=new ClassPathXmlApplicationContext("com/config/beans.xml");
+		ConfigurableApplicationContext ctx=new ClassPathXmlApplicationContext("com/config/beans.xml");
+		Motor motor=ctx.getBean("motor",Motor.class);
+		motor.run();
+		Engine engine=ctx.getBean("engine",Engine.class);
+		engine.run();
+		ctx.registerShutdownHook();
+		
+		
+
+	}
+
+}

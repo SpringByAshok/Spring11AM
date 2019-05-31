@@ -1,0 +1,10 @@
+package com.beans;
+
+public class Motor {
+	
+	public void start()
+	{
+		
+	}
+
+}

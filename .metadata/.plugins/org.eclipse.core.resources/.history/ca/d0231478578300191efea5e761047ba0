@@ -1,0 +1,17 @@
+package com.test;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.beans.Motor;
+
+public abstract class Test {
+
+	public static void main(String[] args) {
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("com/config/beans.xml");
+		ctx.getBean("motor",Motor.class);
+		
+
+	}
+
+}
