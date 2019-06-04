@@ -8,6 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.csv.beans.CSVReader;
 import com.csv.book.Book;
 import com.csv.configurer.AppConfig;
+import com.csv.service.CSVInsertService;
 
 public class Test {
 
@@ -17,12 +18,20 @@ public class Test {
 		CSVReader csv = context.getBean(CSVReader.class);
 		
 		
+		
+		
 		List<Book> list = csv.readCSVFile("Book.csv");
 		
-		for(Book b : list) {
+		CSVInsertService insert = context.getBean(CSVInsertService.class);
+		
+		/*for(Book b : list) {
 			
 			System.out.println(b);
-		}
+		}*/
+		
+		insert.insertData(list);
+		
+		
 		
 
 	}
